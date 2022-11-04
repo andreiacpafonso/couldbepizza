@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 
 // GET profile page
 
-/* router.get("/profile", (req, res) => {
+router.get("/profile", (req, res) => {
   console.log("SESSION =====> ", req.session);
   if (req.session.user) {
     res.render("profile", { user: req.session.user, isConnected: true });
@@ -20,5 +20,5 @@ router.get("/", (req, res, next) => {
     res.redirect("/auth/login");
   }
 });
- */
+
 module.exports = router;
