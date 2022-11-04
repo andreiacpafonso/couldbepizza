@@ -8,12 +8,13 @@ require("./db");
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
+var session = require("express-session");
 
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
-//require("./config/session.config")(app);
+require("./config/session.config")(app);
 // default value for title local
 const capitalize = require("./utils/capitalize");
 const projectName = "couldbepizza";
@@ -29,7 +30,7 @@ const auth = require("./routes/auth.routes");
 app.use("/auth", auth);
 
 const profile = require("./routes/profile.routes");
-app.use("/profile", profile);
+app.use("/", profile);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

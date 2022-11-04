@@ -1,5 +1,7 @@
 // To iniciate the router
 const router = require("express").Router();
+var session = require("express-session");
+
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const app = require("../app");
@@ -7,7 +9,7 @@ const app = require("../app");
 // GET signup page
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  res.render("signup");
 });
 
 // POST signup page
@@ -18,13 +20,14 @@ router.post("/signup", async (req, res, next) => {
     const hashPassword = bcrypt.hashSync(req.body.password, salt);
 
     await User.create({
+      name: req.body.name,
       email: req.body.email,
       password: hashPassword,
     });
-    res.redirect("/auth/login");
+    res.redirect("/login");
   } catch (error) {
     console.log(error.message);
-    res.render("auth/signup", {
+    res.render("signup", {
       errorMessage: error.message,
       isConnected: false,
     });
@@ -42,15 +45,15 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const currentUser = await User.findOne({ email });
-  if (currentUser) {
+  if (!currentUser) {
     res.render("login", {
       errorMessage: "Email is not registered",
       isConnected: false,
     });
   } else {
     if (bcrypt.compareSync(password, currentUser.password)) {
-      req.session.currentUser = currentUser;
-      res.redirect("/profile");
+      req.session.user = currentUser;
+      res.redirect("/", req.session.user);
     } else {
       res.render("login", {
         errorMessage: "Incorrect password",
