@@ -4,16 +4,15 @@ const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const app = require("../app");
 
-
 // GET signup page
 
-router.get("/signup", (req, res, next) => {
+/* router.get("/signup", (req, res, next) => {
     res.render("auth/signup");
-});
+}); */
 
 // POST signup page
 
-router.post("/signup", async (req, res, next) => {
+/* router.post("/signup", async (req, res, next) => {
     try {
         const salt = bcrypt.genSaltSync(10);
         const hashPassword = bcrypt.hashSync(req.body.password, salt);
@@ -27,18 +26,17 @@ router.post("/signup", async (req, res, next) => {
         console.log(error.message)
         res.render("auth/signup", { errorMessage: error.message, isConnected: false });
     }
-});
-
+}); */
 
 // GET login page
 
-router.get("/login", (req, res) => {
+/* router.get("/login", (req, res) => {
     res.render("auth/login", { isConnected: false });
-});
+}); */
 
 // POST login page
 
-router.post("/login", async (req, res) => {
+/* router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const currentUser = await User.findOne({ email });
     if (currentUser) {
@@ -51,18 +49,17 @@ router.post("/login", async (req, res) => {
             res.render("auth/login", { errorMessage: "Incorrect password", isConnected: false });
         }
     }
-});
-
+}); */
 
 // GET Logout
 
-router.get("/logout", (req, res, next) => {
+/* router.get("/logout", (req, res, next) => {
     req.session.destroy((err) => {
         if (err) {
             next(err);
         }
         res.redirect('/auth/login');
     });
-});
+}); */
 
 module.exports = router;
