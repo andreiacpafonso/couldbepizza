@@ -4,6 +4,7 @@ var session = require("express-session");
 const User = require("../models/User.model");
 const app = require("../app");
 const bcrypt = require("bcryptjs");
+const { isLoggedIn } = require("../middleware/route-guard");
 
 /*
 router.get("/profile", (req, res) => {
@@ -15,7 +16,7 @@ router.get("/profile", (req, res) => {
   }
 }); */
 
-router.get("/profile", (req, res) => {
+router.get("/profile", isLoggedIn, (req, res) => {
   //res.send("Hello");
   console.log("SESSION =====>", req.session);
   if (req.session.user) {
