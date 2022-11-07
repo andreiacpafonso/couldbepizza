@@ -1,40 +1,70 @@
+<!-- Div Head Logo -->
 <div class="register">
   <h1>Register your</h1>
   <div id="pizzaAnimation" class="miniPizza"></div>
 </div>
-
-<div class="registerForm">
-  <div class="registerOne">
-    <form method="POST" action="/register-pizza" enctype="multipart/form-data">
-      <input type="file" name="imageUrl" accept="image/png, image/jpg" />
-      <button type="submit">Submit</button>
-    </form>
-    <form method="POST" action="/register-pizza">
+<!-- Div of the form -->
+<form method="POST" action="/register-pizza" enctype="multipart/form-data">
+  <div class="registerForm">
+    <!-- Div part01 form -->
+    <div class="registerOne">
+      <input
+        type="file"
+        name="imageUrl"
+        accept="image/png, image/jpg"
+        name="imageUrl"
+      />
+      <h2>Pizza's Name:</h2>
+      <input
+        type="text"
+        placeholder="Pizza's name"
+        class="formReview"
+        name="namePizza"
+      />
       <h2>Location</h2>
       <label for=""
-        >City <input type="text" placeholder="City" class="formReview"
+        >City:
+        <input type="text" placeholder="City" class="formReview" name="city"
       /></label>
       <label for=""
-        >Country <input type="text" placeholder="Country" class="formReview"
+        >Country:
+        <input
+          type="text"
+          placeholder="Country"
+          class="formReview"
+          name="country"
       /></label>
-
-      <div class="registerTwo">
-        <h2>Ingredients</h2>
-        <input type="text" placeholder="Ingredients" class="formReview" />
-      </div>
-      <div class="registerThree">
-        <h2>Review</h2>
-
-        <div class="mb-3">
-          <textarea
-            class="form-control formReview"
-            id="exampleFormControlTextarea1"
-            rows="15"
-            placeholder="Review"
-            name="review"
-          ></textarea>
+    </div>
+    <!-- Div part02 form -->
+    <div class="registerTwo">
+      <h2>Ingredients:</h2>
+      <div class="ingredientsBtn">
+        <div id="ingredients">
+          <input
+            type="text"
+            placeholder="Ingredients"
+            class="formReview"
+            name="ingredients"
+          />
         </div>
+
+        <button type="button" class="moreIngredient" id="addBtn">+</button>
       </div>
-    </form>
+    </div>
+    <!-- Div part03 form -->
+    <div class="registerThree">
+      <h2>Review</h2>
+      <div class="mb-3">
+        <textarea
+          class="form-control formReview"
+          id="exampleFormControlTextarea1"
+          rows="15"
+          placeholder="Review"
+          name="review"
+        ></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+    </div>
   </div>
-</div>
+</form>

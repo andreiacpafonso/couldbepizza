@@ -87,3 +87,18 @@ h1 {
   border-radius: 10px;
   border-color: #f3f3f3;
 }
+.registerTwo {
+  display: flex;
+  flex-direction: column;
+}
+.moreIngredient {
+  max-height: 2vh;
+}
+.ingredientsBtn {
+  display: flex;
+  flex-direction: row;
+}
+#ingredients {
+  display: flex;
+  flex-direction: column;
+}

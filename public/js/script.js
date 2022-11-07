@@ -8,4 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     autoplay: true,
     path: "/images/pizza.json",
   });
+  const addbtn = document.querySelector("#addBtn");
+  const ingredientDiv = document.querySelector("#ingredients");
+  addbtn.addEventListener("click", () => {
+    const input = document.createElement("input");
+    input.setAttribute("name", "ingredients");
+    input.className = "formReview";
+    ingredientDiv.appendChild(input);
+    //.classList.add("formReview");
+  });
 });

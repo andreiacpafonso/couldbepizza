@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 var session = require("express-session");
 const User = require("../models/User.model");
+const Userpizza = require("../models/Userpizza.model");
 const app = require("../app");
 const bcrypt = require("bcryptjs");
 const { isLoggedIn } = require("../middleware/route-guard");
@@ -16,16 +17,24 @@ router.get("/register-pizza", isLoggedIn, (req, res) => {
 router.post(
   "/register-pizza",
   uploader.single("imageUrl"),
-  (req, res, next) => {
+  async (req, res, next) => {
     // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
     console.log("file is: ", req.file);
+    await Userpizza.create({
+      imageUrl: req.file.path,
+      namePizza: req.body.namePizza,
+      city: req.body.city,
+      country: req.body.country,
+      ingredients: req.body.ingredients,
+      review: req.body.review,
+    });
 
     if (!req.file) {
       console.log("there was an error uploading the file");
       next(new Error("No file uploaded!"));
       return;
     }
-
+    res.redirect("/profile");
     // You will get the image url in 'req.file.path'
     // Your code to store your url in your database should be here
   }

@@ -3,28 +3,16 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userPizzaSchema = new Schema(
   {
-    nameUser: {
+    imageUrl: {
       type: String,
-      trim: true,
       required: true,
     },
+
     namePizza: {
       type: String,
       required: true,
       lowercase: true,
       trim: true,
-    },
-    ingredients: {
-      type: [String],
-      required: true,
-    },
-    imageUrl: {
-      type: String,
-      required: true,
-    },
-    review: {
-      type: [String],
-      required: false,
     },
     city: {
       type: String,
@@ -36,6 +24,16 @@ const userPizzaSchema = new Schema(
       trim: true,
       required: true,
     },
+    ingredients: {
+      type: [String],
+      required: true,
+    },
+
+    review: {
+      type: [String],
+      required: false,
+    },
+
     pizzaholic: {
       type: [Schema.Types.ObjectId],
       ref: "User",
@@ -47,6 +45,6 @@ const userPizzaSchema = new Schema(
   }
 );
 
-const Userpizza = model("Userpizza", userSchema);
+const Userpizza = model("Userpizza", userPizzaSchema);
 
-module.exports = User;
+module.exports = Userpizza;
