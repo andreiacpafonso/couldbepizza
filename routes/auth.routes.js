@@ -9,7 +9,7 @@ const app = require("../app");
 // GET signup page
 
 router.get("/signup", (req, res, next) => {
-  res.render("signup");
+  res.render("signup", { isConnected: false });
 });
 
 // POST signup page
@@ -37,7 +37,7 @@ router.post("/signup", async (req, res, next) => {
 // GET login page
 
 router.get("/login", (req, res) => {
-  res.render("login" /* , { isConnected: false } */);
+  res.render("login", { isConnected: false });
 });
 
 // POST login page
@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
   } else {
     if (bcrypt.compareSync(password, currentUser.password)) {
       req.session.user = currentUser;
-      res.redirect("/", req.session.user);
+      res.redirect("/");
     } else {
       res.render("login", {
         errorMessage: "Incorrect password",

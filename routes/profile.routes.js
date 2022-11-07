@@ -19,7 +19,7 @@ router.get("/profile", (req, res) => {
   //res.send("Hello");
   console.log("SESSION =====>", req.session);
   if (req.session.user) {
-    res.render("profile", { user: req.session.user });
+    res.render("profile", { user: req.session.user, isConnected: true });
   } else {
     res.redirect("/auth/login");
   }
