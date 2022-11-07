@@ -3,8 +3,7 @@
   <label>E-mail:<input type="text" name="email" required /></label>
   <label>Password:<input type="password" name="password" required /></label>
   <button type="submit">Let's Go!</button>
-
-  <% if (typeof errorMessage !== 'undefined') { %>
-  <p><%= errorMessage %></p>
-  <% } %>
 </form>
+<% if (typeof errorMessage !== 'undefined') { %>
+<p><%= errorMessage %></p>
+<% } %>

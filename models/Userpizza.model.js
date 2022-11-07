@@ -18,6 +18,14 @@ const userPizzaSchema = new Schema(
       type: [String],
       required: true,
     },
+    imageUrl: {
+      type: String,
+      required: true,
+    },
+    review: {
+      type: [String],
+      required: false,
+    },
     city: {
       type: String,
       trim: true,

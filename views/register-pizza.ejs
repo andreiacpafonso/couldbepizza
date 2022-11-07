@@ -1,0 +1,40 @@
+<div class="register">
+  <h1>Register your</h1>
+  <div id="pizzaAnimation" class="miniPizza"></div>
+</div>
+
+<div class="registerForm">
+  <div class="registerOne">
+    <form method="POST" action="/register-pizza" enctype="multipart/form-data">
+      <input type="file" name="imageUrl" accept="image/png, image/jpg" />
+      <button type="submit">Submit</button>
+    </form>
+    <form method="POST" action="/register-pizza">
+      <h2>Location</h2>
+      <label for=""
+        >City <input type="text" placeholder="City" class="formReview"
+      /></label>
+      <label for=""
+        >Country <input type="text" placeholder="Country" class="formReview"
+      /></label>
+
+      <div class="registerTwo">
+        <h2>Ingredients</h2>
+        <input type="text" placeholder="Ingredients" class="formReview" />
+      </div>
+      <div class="registerThree">
+        <h2>Review</h2>
+
+        <div class="mb-3">
+          <textarea
+            class="form-control formReview"
+            id="exampleFormControlTextarea1"
+            rows="15"
+            placeholder="Review"
+            name="review"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

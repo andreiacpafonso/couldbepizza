@@ -24,7 +24,7 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
       email: req.body.email,
       password: hashPassword,
     });
-    res.redirect("/login");
+    res.redirect("/auth/login");
   } catch (error) {
     console.log(error.message);
     res.render("signup", {
@@ -37,7 +37,7 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
 // GET login page
 
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("login" /* , { isConnected: false } */);
+  res.render("login", { isConnected: false });
 });
 
 // POST login page
@@ -45,15 +45,17 @@ router.get("/login", isLoggedOut, (req, res) => {
 router.post("/login", isLoggedOut, async (req, res) => {
   const { email, password } = req.body;
   const currentUser = await User.findOne({ email });
+  console.log({ email });
   if (!currentUser) {
     res.render("login", {
-      errorMessage: "Email is not registered",
+      errorMessage: "E-mail is not registered",
       isConnected: false,
     });
   } else {
     if (bcrypt.compareSync(password, currentUser.password)) {
       req.session.user = currentUser;
-      res.redirect("/");
+      console.log("Yess");
+      res.redirect("/profile");
     } else {
       res.render("login", {
         errorMessage: "Incorrect password",
@@ -62,7 +64,6 @@ router.post("/login", isLoggedOut, async (req, res) => {
     }
   }
 });
-
 
 // GET Logout
 
