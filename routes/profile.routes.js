@@ -13,11 +13,11 @@ router.get("/profile", isLoggedIn, async (req, res) => {
   const currentUser = await User.findById(req.session.user._id).populate(
     "userPizza"
   );
-  
+  console.log ("currentUser", currentUser)
   res.render("profile", { currentUser, isConnected: true });
 });
 router.get("/register-pizza", isLoggedIn, (req, res) => {
-  res.render("register-pizza", { user: req.session.user, isConnected: true });
+  res.render("register-pizza", { currentUser: req.session.user, isConnected: true });
 });
 router.post(
   "/register-pizza",
@@ -56,7 +56,7 @@ router.get("/update/:id", async (req, res) => {
   
   const updatePizza = await Userpizza.findById(req.params.id)
   const currentUser = await User.findById(req.session.user._id)
- 
+ console.log ("updatePizza", updatePizza)
 res.render('update',  {updatePizza, currentUser} )
 })
 
@@ -64,7 +64,7 @@ res.render('update',  {updatePizza, currentUser} )
 
 router.post("/update/:id",  uploader.single("imageUrl"), async (req,res)  => {
   console.log (req.body, req.file)
-  await Userpizza.findByIdAndUpdate(req.params.id, {...req.body,ingredients: req.body.ingredients.split(' ')})
+  await Userpizza.findByIdAndUpdate(req.params.id, req.body)
   res.redirect("/profile");
   
 })
@@ -75,6 +75,15 @@ router.get("/delete/:id", async (req, res) => {
  
  
 res.redirect ('/profile')
+})
+
+router.get("/likes/:id", async (req, res) => {
+  const likePizza = await Userpizza.findByIdAndUpdate(req.params.id, { $push: { pizzaholic: req.session.user._id }})
+  const currentUser = await User.findByIdAndUpdate(req.session.user._id, {
+    $push: { likedpizzas: likePizza._id },
+  });
+  
+ res.redirect('/see-all-pizzas')
 })
 
 module.exports = router;

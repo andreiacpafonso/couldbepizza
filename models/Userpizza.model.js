@@ -34,10 +34,11 @@ const userPizzaSchema = new Schema(
       required: false,
     },
 
-    pizzaholic: {
-      type: [Schema.Types.ObjectId],
+    pizzaholic: [{
+      type: Schema.Types.ObjectId,
       ref: "User",
-    },
+      unique: true,
+    }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

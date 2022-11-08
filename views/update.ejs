@@ -68,13 +68,16 @@
       <h2 class="title">Ingredients:</h2>
       <div class="ingredientsBtn">
         <div id="ingredients">
+          <% for( let index = 0; index < updatePizza.ingredients.length; index++
+          ) { %>
           <input
             type="text"
             placeholder="Ingredients"
             class="formReview"
             name="ingredients"
-            value="<%- updatePizza.ingredients%>"
+            value="<%- updatePizza.ingredients[index]%>"
           />
+          <% } %>
         </div>
 
         <button type="button" class="moreIngredient" id="addBtn">+</button>

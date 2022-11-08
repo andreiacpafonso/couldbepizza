@@ -23,9 +23,15 @@
           >Home</a
         >
       </li>
+
+      <% if (typeof currentUser === "undefined" ) { %>
       <li><a href="/auth/login">Login</a></li>
       <li><a href="/auth/signup">Signup</a></li>
+      <% }else {%>
+
       <li><a href="/auth/logout">Logout</a></li>
+      <%}%>
+
       <li><a href="/see-all-pizzas">See all 🍕</a></li>
       <li><a href="/register-pizza">Register 🍕</a></li>
 
