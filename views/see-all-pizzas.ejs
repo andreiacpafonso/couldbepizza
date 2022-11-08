@@ -5,16 +5,15 @@
   <% pizzas.forEach(pizza => { %>
 
   <div class="card pizzasCard" style="width: 18rem">
-    <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
+    <div class="center-image">
+      <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h5>
       <h5 class="card-text"><%-pizza.city%>, <%-pizza.country%></h5>
 
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <p class="card-text"><%-pizza.review%></p>
+      <a href="#" class="btn btn-primary">Like Pizza</a>
     </div>
   </div>
   <%}) %>

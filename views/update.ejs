@@ -1,0 +1,100 @@
+<h1>Welcome <%- currentUser.name %> !</h1>
+<form
+  method="POST"
+  action="/update/<%-updatePizza._id%>"
+  enctype="multipart/form-data"
+>
+  <div class="registerForm">
+    <!-- Div part01 form -->
+    <div class="registerOne">
+      <div class="custom-file-upload">
+        <label for="file-upload" class="inputImagePlace">
+          <svg
+            class="mx-auto h-12 w-12 text-gray-400"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+          >
+            <path
+              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Select Pizza's Image
+          <input
+            id="file-upload"
+            type="file"
+            name="imageUrl"
+            accept="image/png, image/jpg"
+            name="imageUrl"
+            class="inputImage"
+            value="<%- updatePizza.imageUrl %>"
+          />
+        </label>
+      </div>
+      <h2 class="title">Pizza's Name:</h2>
+      <input
+        type="text"
+        placeholder="Pizza's name"
+        class="formReview"
+        name="namePizza"
+        value="<%- updatePizza.namePizza %> "
+      />
+      <h2 class="title">Location</h2>
+      <label for=""
+        >City:
+        <input
+          type="text"
+          placeholder="City"
+          class="formReview"
+          name="city"
+          value="<%- updatePizza.city%>"
+      /></label>
+      <label for=""
+        >Country:
+        <input
+          type="text"
+          placeholder="Country"
+          class="formReview"
+          name="country"
+          value="<%- updatePizza.country%>"
+      /></label>
+    </div>
+    <!-- Div part02 form -->
+    <div class="registerTwo">
+      <h2 class="title">Ingredients:</h2>
+      <div class="ingredientsBtn">
+        <div id="ingredients">
+          <input
+            type="text"
+            placeholder="Ingredients"
+            class="formReview"
+            name="ingredients"
+            value="<%- updatePizza.ingredients%>"
+          />
+        </div>
+
+        <button type="button" class="moreIngredient" id="addBtn">+</button>
+      </div>
+    </div>
+    <!-- Div part03 form -->
+    <div class="registerThree">
+      <h2 class="title">Review</h2>
+      <div class="mb-3">
+        <textarea
+          class="form-control formReview"
+          id="exampleFormControlTextarea1"
+          rows="15"
+          placeholder="Review"
+          name="review"
+          value="<%- updatePizza.review%>"
+        ></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+</form>

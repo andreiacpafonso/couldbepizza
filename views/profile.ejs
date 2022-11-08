@@ -1,17 +1,17 @@
-<h1>Hello <%- currentUser.name %> !</h1>
+<h1>Welcome <%- currentUser.name %> !</h1>
 <%- currentUser.userPizza.review %>
 <div class="allpizzas">
   <% currentUser.userPizza.forEach(pizza => { %>
-  <h1><%=pizza.namePizza%></h1>
+
   <div class="card pizzasCard" style="width: 18rem">
     <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h5>
+      <h5 class="card-text"><%-pizza.city%>, <%-pizza.country%></h5>
+
+      <p class="card-text"><%-pizza.review%></p>
+      <a href="/update/<%-pizza._id%>" class="btn btn-primary">update</a>
+      <a href="/delete/<%-pizza._id%>" class="btn btn-primary">delete</a>
     </div>
   </div>
   <%}) %>

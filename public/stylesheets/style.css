@@ -149,8 +149,19 @@ h1 {
   align-content: center;
   justify-content: center;
 }
+.center-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .imageCard {
-  max-width: 60px;
+  max-width: 200px;
+  border-radius: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
 }
 .pizzasCard {
   padding: 20px;
