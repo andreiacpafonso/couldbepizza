@@ -1,5 +1,6 @@
 const router = require("express").Router();
 var session = require("express-session");
+const Userpizza = require("../models/Userpizza.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -11,6 +12,10 @@ router.get("/", (req, res, next) => {
   res.render("index", { isConnected });
 });
 
-// GET profile page
+// GET See all pizzas page
+router.get("/see-all-pizzas", async (req, res, next) => {
+  const pizzas = await Userpizza.find();
+  res.render("see-all-pizzas", { pizzas });
+});
 
 module.exports = router;

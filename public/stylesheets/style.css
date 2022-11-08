@@ -1,10 +1,10 @@
 body {
   padding: 50px;
-  font-family: "Space Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   background-color: #fcefca;
   color: #650001;
 }
-.container {
+.containerIndex {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,6 +13,7 @@ body {
   color: #650001;
   text-align: center;
   font-weight: 500;
+  padding-top: 100px;
 }
 .nav {
   display: flex;
@@ -25,14 +26,14 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+/* Logo */
 .couldBe {
   width: 25em;
 }
 #pizzaAnimation {
   width: 18em;
 }
-
+/* Links */
 a {
   text-decoration: none;
 
@@ -44,7 +45,9 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
-
+.title {
+  font-family: "Space Mono", monospace;
+}
 h1 {
   color: 15px;
 }
@@ -70,10 +73,12 @@ h1 {
 .register {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   font-size: 2.5em;
 }
 .registerForm {
   display: flex;
+  justify-content: center;
   flex-direction: row;
 
   align-content: flex-start;
@@ -82,15 +87,18 @@ h1 {
 .registerTwo,
 .registerThree {
   padding: 50px;
+  background-color: rgb(255, 147, 30, 0.2);
+  box-shadow: 6px 6px 12px rgb(197, 197, 197, 0.2),
+    -6px -6px 12px rgba(255, 255, 255, 0.2);
+  border-radius: 1em;
+  margin: 20px;
 }
-.formReview {
-  border-radius: 10px;
-  border-color: #f3f3f3;
-}
+
 .registerTwo {
   display: flex;
   flex-direction: column;
 }
+
 .moreIngredient {
   max-height: 2vh;
 }
@@ -101,4 +109,92 @@ h1 {
 #ingredients {
   display: flex;
   flex-direction: column;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 2.5em;
+  font-family: "Space Mono", monospace;
+}
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin: 0 auto;
+  background-color: rgb(255, 147, 30, 0.2);
+  box-shadow: 6px 6px 12px rgb(197, 197, 197, 0.2),
+    -6px -6px 12px rgba(255, 255, 255, 0.2);
+  border-radius: 1em;
+  padding: 50px;
+}
+/* Titles of the pages*/
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+}
+/* Button of Login/Signup page */
+.formLogin > .authBtn {
+  margin: 20px;
+}
+/* See all pizzas page*/
+.allpizzas {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+.imageCard {
+  max-width: 60px;
+}
+.pizzasCard {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(255, 147, 30, 0.2);
+  box-shadow: 6px 6px 12px rgb(197, 197, 197, 0.2),
+    -6px -6px 12px rgba(255, 255, 255, 0.2);
+  border-radius: 1em;
+}
+/* Register Pizza Form*/
+.inputImagePlace {
+  border: 5px;
+  border-color: #f3f3f3;
+  cursor: pointer;
+}
+.custom-file-upload {
+  border: 1px dashed #650001;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.inputImage {
+  display: none;
+}
+input[type="text"] {
+  padding: 5px;
+  border: 2px solid rgb(255, 147, 30, 0.2);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type="password"] {
+  padding: 5px;
+  border: 2px solid rgb(255, 147, 30, 0.2);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus {
+  border-color: #650001;
+}
+
+.formReview {
+  padding: 5px;
+  border: 2px solid rgb(255, 147, 30, 0.2);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }

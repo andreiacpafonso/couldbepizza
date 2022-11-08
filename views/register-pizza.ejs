@@ -1,6 +1,6 @@
 <!-- Div Head Logo -->
-<div class="register">
-  <h1>Register your</h1>
+<div class="header">
+  <h1 class="title">Register your</h1>
   <div id="pizzaAnimation" class="miniPizza"></div>
 </div>
 <!-- Div of the form -->
@@ -8,20 +8,41 @@
   <div class="registerForm">
     <!-- Div part01 form -->
     <div class="registerOne">
-      <input
-        type="file"
-        name="imageUrl"
-        accept="image/png, image/jpg"
-        name="imageUrl"
-      />
-      <h2>Pizza's Name:</h2>
+      <div class="custom-file-upload">
+        <label for="file-upload" class="inputImagePlace">
+          <svg
+            class="mx-auto h-12 w-12 text-gray-400"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+          >
+            <path
+              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Select Pizza's Image
+          <input
+            id="file-upload"
+            type="file"
+            name="imageUrl"
+            accept="image/png, image/jpg"
+            name="imageUrl"
+            class="inputImage"
+          />
+        </label>
+      </div>
+      <h2 class="title">Pizza's Name:</h2>
       <input
         type="text"
         placeholder="Pizza's name"
         class="formReview"
         name="namePizza"
       />
-      <h2>Location</h2>
+      <h2 class="title">Location</h2>
       <label for=""
         >City:
         <input type="text" placeholder="City" class="formReview" name="city"
@@ -37,7 +58,7 @@
     </div>
     <!-- Div part02 form -->
     <div class="registerTwo">
-      <h2>Ingredients:</h2>
+      <h2 class="title">Ingredients:</h2>
       <div class="ingredientsBtn">
         <div id="ingredients">
           <input
@@ -53,7 +74,7 @@
     </div>
     <!-- Div part03 form -->
     <div class="registerThree">
-      <h2>Review</h2>
+      <h2 class="title">Review</h2>
       <div class="mb-3">
         <textarea
           class="form-control formReview"
