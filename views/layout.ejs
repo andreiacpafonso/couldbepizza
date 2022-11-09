@@ -16,27 +16,36 @@
 
   <body>
     <ul class="nav">
-      <li>
-        <a
-          href="/
+      <div class="containerNav">
+        <div class="logoNav">
+          <img src="/images/logo.svg" alt="Could be" />
+        </div>
+        <div class="menu">
+          <li>
+            <a
+              href="/
          "
-          >Home</a
-        >
-      </li>
+              class="linkNav"
+              >Home</a
+            >
+          </li>
 
-      <% if (typeof currentUser === "undefined" ) { %>
-      <li><a href="/auth/login">Login</a></li>
-      <li><a href="/auth/signup">Signup</a></li>
-      <% }else {%>
+          <% if (typeof currentUser === "undefined" ) { %>
+          <li><a href="/auth/login" class="linkNav">Login</a></li>
+          <li><a href="/auth/signup" class="linkNav">Signup</a></li>
+          <% }else {%>
 
-      <li><a href="/auth/logout">Logout</a></li>
-      <%}%>
+          <li><a href="/auth/logout" class="linkNav">Logout</a></li>
+          <%}%>
 
-      <li><a href="/see-all-pizzas">See all 🍕</a></li>
-      <li><a href="/register-pizza">Register 🍕</a></li>
+          <li><a href="/see-all-pizzas" class="linkNav">See all 🍕</a></li>
+          <li><a href="/register-pizza" class="linkNav">Register 🍕</a></li>
 
-      <li><a href="/profile">Profile</a></li>
+          <li><a href="/profile" class="linkNav">Profile</a></li>
+        </div>
+      </div>
     </ul>
+
     <%-body%>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"

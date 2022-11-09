@@ -10,10 +10,13 @@
     from <span style="background-color: #ff931e">around the world </span>and
     also register the ones you have already eaten.
   </p>
+  <% if (typeof currentUser === "undefined" ) { %>
+  <div class="btnLogin">
+    <a href="/auth/login" style="text-decoration: none"
+      ><button class="authBtn">Login</button></a
+    >
 
-  <a href="/auth/login" style="text-decoration: none"
-    ><button class="authBtn">Login</button></a
-  >
-
-  <a href="/auth/signup"><button class="authBtn">Signup</button></a>
+    <a href="/auth/signup"><button class="authBtn">Signup</button></a>
+  </div>
 </div>
+<%}%>

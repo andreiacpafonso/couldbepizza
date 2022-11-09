@@ -17,14 +17,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ingredientDiv.appendChild(input);
     //.classList.add("formReview");
   });
-  const btnlike = document.querySelector("#likePizza");
-  let totallikes = 0 
-  btnlike.addEventListener("click", () => {
-    console.log("likes")
-    const addlike = Number(document.querySelector("#likes"));
-    totallikes += 1
-    addlike.innerText = totallikes
-  })
 });
-
-

@@ -1,18 +1,40 @@
-<h1>Welcome <%- currentUser.name %> !</h1>
+<div class="header">
+  <h1>
+    Welcome
+    <%-currentUser.name.charAt(0).toUpperCase()+currentUser.name.slice(1).toLowerCase()
+    %>!
+  </h1>
+</div>
 <%- currentUser.userPizza.review %>
 <div class="allpizzas">
   <% currentUser.userPizza.forEach(pizza => { %>
 
   <div class="card pizzasCard" style="width: 18rem">
-    <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
+    <div class="center-image">
+      <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
+    </div>
     <div class="card-body">
-      <h5 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h5>
-      <h5 class="card-text"><%-pizza.city%>, <%-pizza.country%></h5>
+      <h3 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h3>
+      <h5 class="card-text">
+        City: <%-pizza.city%> Country: <%-pizza.country%>
+      </h5>
+      <h5 class="card-text">
+        <ul>
+          <%pizza.ingredients.forEach(ingredient=>{ %>
+          <li><%-ingredient%></li>
+          <%}) %>
+        </ul>
+      </h5>
 
       <p class="card-text"><%-pizza.review%></p>
-      <a href="/update/<%-pizza._id%>" class="btn btn-primary">update</a>
-      <a href="/delete/<%-pizza._id%>" class="btn btn-primary">delete</a>
+      <a href="/update/<%-pizza._id%>" class="btn btn-primary"
+        ><button class="updateBtn">update</button></a
+      >
+      <a href="/delete/<%-pizza._id%>" class="btn btn-primary"
+        ><button class="updateBtn">delete</button></a
+      >
     </div>
   </div>
   <%}) %>
 </div>
+<a href=""></a>

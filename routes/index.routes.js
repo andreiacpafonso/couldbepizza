@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
     isConnected = true;
   }
 
-  res.render("index", { isConnected });
+  res.render("index", { currentUser: req.session.user, isConnected });
 });
 
 // GET See all pizzas page
