@@ -1,40 +1,60 @@
-<div class="header">
-  <h1>
-    Welcome
-    <%-currentUser.name.charAt(0).toUpperCase()+currentUser.name.slice(1).toLowerCase()
-    %>!
-  </h1>
-</div>
-<%- currentUser.userPizza.review %>
-<div class="allpizzas">
-  <% currentUser.userPizza.forEach(pizza => { %>
-
-  <div class="card pizzasCard" style="width: 18rem">
-    <div class="center-image">
-      <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
+<div class="container">
+  <div class="profile">
+    <div class="header">
+      <h1>
+        Welcome
+        <%-currentUser.name.charAt(0).toUpperCase()+currentUser.name.slice(1).toLowerCase()
+        %>!
+      </h1>
     </div>
-    <div class="card-body">
-      <h3 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h3>
-      <h5 class="card-text">
-        City: <%-pizza.city%> Country: <%-pizza.country%>
-      </h5>
-      <h5 class="card-text">
-        <ul>
-          <%pizza.ingredients.forEach(ingredient=>{ %>
-          <li><%-ingredient%></li>
-          <%}) %>
-        </ul>
-      </h5>
-
-      <p class="card-text"><%-pizza.review%></p>
-      <a href="/update/<%-pizza._id%>" class="btn btn-primary"
-        ><button class="updateBtn">update</button></a
+    <p>
+      Here are all your pizzas! Enjoy it. If you want to register one,
+      <a href="/register-pizza"
+        ><button class="updateBtn">click here!</button></a
       >
-      <a href="/delete/<%-pizza._id%>" class="btn btn-primary"
-        ><button class="updateBtn">delete</button></a
-      >
-    </div>
+    </p>
   </div>
-  <%}) %>
+  <%- currentUser.userPizza.review %>
+  <div class="allpizzas">
+    <% currentUser.userPizza.forEach(pizza => { %>
+
+    <div class="card pizzasCard" style="width: 18rem">
+      <div class="center-image">
+        <img
+          src="<%-pizza.imageUrl%>"
+          class="card-img-top imageCard"
+          alt="..."
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title" style="padding: 20px 0">
+          <%-pizza.namePizza.toUpperCase(0)%>
+        </h3>
+        <h5 class="card-text" style="padding: 10px 0">
+          City: <%-pizza.city%> Country: <%-pizza.country%>
+        </h5>
+        <h5 class="card-text ingredientsDisplay" style="padding: 10px 0">
+          <ul>
+            <%pizza.ingredients.forEach(ingredient=>{ %>
+            <li><%-ingredient%></li>
+            <%}) %>
+          </ul>
+        </h5>
+
+        <p class="card-text" style="padding: 10px 0 20px 0">
+          <%-pizza.review%>
+        </p>
+        <div class="btnProfile">
+          <a href="/update/<%-pizza._id%>" class="btn btn-primary"
+            ><button class="updateBtn">update</button></a
+          >
+          <a href="/delete/<%-pizza._id%>" class="btn btn-primary"
+            ><button class="updateBtn">delete</button></a
+          >
+        </div>
+      </div>
+    </div>
+    <%}) %>
+  </div>
+  <a href=""></a>
 </div>
-<a href=""></a>

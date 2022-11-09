@@ -1,17 +1,19 @@
-<div class="header">
-  <h1>Login</h1>
-</div>
-<div class="formContainer">
-  <form method="POST" action="/auth/login" class="formLogin">
-    <label
-      >E-mail: <br />
-      <input type="text" name="email" required
-    /></label>
-    <label
-      >Password: <br /><input type="password" name="password" required
-    /></label>
-    <button type="submit" class="authBtn">Let's Go!</button>
-  </form>
+<div class="container">
+  <div class="header">
+    <h1>Login</h1>
+  </div>
+  <div class="formContainer">
+    <form method="POST" action="/auth/login" class="formLogin">
+      <label
+        >E-mail: <br />
+        <input type="text" name="email" required
+      /></label>
+      <label
+        >Password: <br /><input type="password" name="password" required
+      /></label>
+      <button type="submit" class="authBtn">Let's Go!</button>
+    </form>
+  </div>
 </div>
 <% if (typeof errorMessage !== 'undefined') { %>
 <p><%= errorMessage %></p>

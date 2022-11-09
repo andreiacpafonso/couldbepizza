@@ -26,8 +26,9 @@
               href="/
          "
               class="linkNav"
-              >Home</a
             >
+              <img src="/images/home.png" alt="" class="homeNav" />
+            </a>
           </li>
 
           <% if (typeof currentUser === "undefined" ) { %>
@@ -38,15 +39,28 @@
           <li><a href="/auth/logout" class="linkNav">Logout</a></li>
           <%}%>
 
-          <li><a href="/see-all-pizzas" class="linkNav">See all 🍕</a></li>
-          <li><a href="/register-pizza" class="linkNav">Register 🍕</a></li>
-
           <li><a href="/profile" class="linkNav">Profile</a></li>
+          <div class="seeAll">
+            <li>
+              <a href="/see-all-pizzas" class="linkNav"
+                ><button class="navBtn">
+                  See all
+
+                  <img src="/images/pizza.svg" alt="pizza" class="pizzaMenu" />
+                </button>
+              </a>
+            </li>
+          </div>
         </div>
       </div>
     </ul>
 
     <%-body%>
+    <lottie-player
+      id="tenthLottie"
+      src="https://assets3.lottiefiles.com/packages/lf20_rXwz8k6MJO.json"
+      style="width: 400px; height: 400px"
+    ></lottie-player>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"
       integrity="sha512-yAr4fN9WZH6hESbOwoFZGtSgOP+LSZbs/JeoDr02pOX4yUFfI++qC9YwIQXIGffhnzliykJtdWTV/v3PxSz8aw=="

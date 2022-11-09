@@ -1,20 +1,66 @@
-<div class="header">
-  <h1>All the crazy </h1><img src="/images/pizza.svg" alt="Pizza" class="miniPizza">
-</div>
-<div class="allpizzas">
-  <% pizzas.forEach(pizza => { %>
-
-  <div class="card pizzasCard" style="width: 18rem">
-    <div class="center-image">
-      <img src="<%-pizza.imageUrl%>" class="card-img-top imageCard" alt="..." />
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%-pizza.namePizza.toUpperCase(0)%></h5>
-      <h5 class="card-text"><%-pizza.city%>, <%-pizza.country%></h5>
-
-      <p class="card-text"><%-pizza.review%></p>
-     <a  href="/likes/<%-pizza._id%>"> Like Pizza<span id="likes"><%-pizza.pizzaholic.length%></span>
-    </div>
+<div class="container">
+  <div class="header">
+    <h1>All the crazy</h1>
+    <img src="/images/pizza.svg" alt="Pizza" class="miniPizza" />
   </div>
-  <%}) %>
+  <% if (typeof currentUser === "undefined" ) { %>
+  <p class="paragraph">
+    Look at all these
+    <span style="background-color: #ff931e">crazy pizzas</span>. If you want to
+    add some that you already eaten,
+    <a href="/auth/signup"><button class="updateBtn">Signup</button></a> and
+    come to register one.
+  </p>
+  <% }else {%>
+  <p class="paragraph">
+    Look at all these
+    <span style="background-color: #ff931e">crazy pizzas</span>. go to your
+    <a href="/profile"><button class="updateBtn">Profile Page</button></a> and
+    add some crazy pizza flavor that you already eaten.
+  </p>
+  <%}%>
+
+  <div class="allpizzas">
+    <% pizzas.forEach(pizza => { %>
+
+    <div class="card pizzasCard" style="width: 18rem">
+      <div class="center-image">
+        <img
+          src="<%-pizza.imageUrl%>"
+          class="card-img-top imageCard"
+          alt="..."
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title" style="padding: 10px 0">
+          <%-pizza.namePizza.toUpperCase(0)%>
+        </h3>
+        <h5 class="card-text" style="padding: 10px 0">
+          City: <%-pizza.city%> Country: <%-pizza.country%>
+        </h5>
+        <h5 class="card-text ingredientsDisplay" style="padding: 10px 0">
+          <ul>
+            <%pizza.ingredients.forEach(ingredient=>{ %>
+            <li><%-ingredient%></li>
+            <%}) %>
+          </ul>
+        </h5>
+        <p class="card-text" style="padding: 10px 0"><%-pizza.review%></p>
+        <div class="likes">
+          <div>
+            <a href="/likes/<%-pizza._id%>">
+              <img
+                src="/images/pizza.png"
+                alt="pizza"
+                class="miniPizza btnLikes likeImg"
+              />
+            </a>
+          </div>
+          <h1 class="likesLength"><%-pizza.pizzaholic.length%></h1>
+        </div>
+      </div>
+    </div>
+
+    <%}) %>
+  </div>
 </div>

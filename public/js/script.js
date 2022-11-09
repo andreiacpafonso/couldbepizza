@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     path: "/images/pizza.json",
   });
   const addbtn = document.querySelector("#addBtn");
+  const delbtn = document.querySelector("#delBtn");
   const ingredientDiv = document.querySelector("#ingredients");
   addbtn.addEventListener("click", () => {
     const input = document.createElement("input");
@@ -16,5 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
     input.className = "formReview";
     ingredientDiv.appendChild(input);
     //.classList.add("formReview");
+  });
+  delbtn.addEventListener("click", () => {
+    const input = document.querySelector("input");
+
+    ingredientDiv.removeChild(input);
+    //.classList.add("formReview");
+  });
+  LottieInteractivity.create({
+    player: "#tenthLottie",
+    mode: "cursor",
+    actions: [
+      {
+        type: "click",
+        forceFlag: false,
+      },
+    ],
   });
 });

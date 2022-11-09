@@ -5,11 +5,42 @@
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #fcefca;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23cab16a' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  /* background-color: #fcefca; */
   color: #650001;
 }
 /* Navegation menu */
 li {
   list-style-type: none;
+}
+.navBtn {
+  background-color: #ff931e;
+  color: #650001;
+  font-weight: bold;
+  padding: 0 1em;
+  max-height: 3em;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 2rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.8vh;
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  align-items: center;
+}
+.seeAll {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
+  padding-top: 0;
+}
+.pizzaMenu {
+  padding-left: 10px;
+  width: 4vh;
 }
 .containerNav {
   margin: 0;
@@ -28,6 +59,9 @@ li {
   justify-content: flex-start;
   padding-left: 50px;
 }
+.homeNav {
+  width: 3vh;
+}
 .linkNav {
   padding: 20px;
 }
@@ -42,6 +76,9 @@ li {
 }
 .menu > a {
   padding: 20px 20px;
+}
+.container {
+  padding-top: 80px;
 }
 .containerIndex {
   display: flex;
@@ -111,7 +148,8 @@ h1 {
 }
 .authBtn:hover:not(:disabled),
 .updateBtn:hover:not(:disabled),
-.plusBtn:hover:not(:disabled) {
+.plusBtn:hover:not(:disabled),
+.navBtn:hover:not(:disabled) {
   background: #650001;
   color: white;
 }
@@ -129,7 +167,8 @@ h1 {
   display: flex;
   justify-content: center;
   flex-direction: row;
-
+  margin-top: 20px;
+  padding-top: 50px;
   align-content: flex-start;
 }
 .registerOne,
@@ -165,6 +204,7 @@ h1 {
   justify-content: center;
   font-size: 2.5em;
   font-family: "Space Mono", monospace;
+  padding-bottom: 50px;
 }
 .formLogin {
   display: flex;
@@ -202,6 +242,21 @@ h1 {
   align-content: center;
   justify-content: center;
 }
+.likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.likeImg {
+  width: 5vh;
+}
+.likesLength {
+  padding-left: 20px;
+}
+.paragraph {
+  font-family: "Space Mono", monospace;
+  text-align: center;
+}
 .center-image {
   display: flex;
   align-items: center;
@@ -218,6 +273,9 @@ h1 {
   text-align: center;
 }
 .pizzasCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 20px;
   margin: 20px;
   background-color: rgb(255, 147, 30, 0.2);
@@ -301,4 +359,36 @@ input[type="text"]:focus {
   font-family: "Space Mono", monospace;
   font-size: 1.8vh;
   margin-bottom: 10px;
+  align-items: center;
+}
+/* Profile */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Mono", monospace;
+  color: #650001;
+
+  font-size: 1.8vh;
+}
+.btnProfile {
+  display: flex;
+  justify-content: space-around;
+}
+.ingredientsDisplay {
+  display: flex;
+  flex-wrap: wrap;
+}
+.btnLikes:hover {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }
