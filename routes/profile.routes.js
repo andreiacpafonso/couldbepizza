@@ -38,7 +38,9 @@ router.post(
     } else {
       pizzaImg = req.file.path;
     }
-    const ingredient = req.body.ingredients.toLowerCase();
+    const ingredient = req.body.ingredients.map((ingredient) =>
+      ingredient.toLowerCase()
+    );
     const newPizza = await Userpizza.create({
       imageUrl: pizzaImg,
       namePizza: req.body.namePizza,
