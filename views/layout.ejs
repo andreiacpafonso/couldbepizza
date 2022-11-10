@@ -58,7 +58,18 @@
     </ul>
 
     <%-body%>
-
+    <script>
+      function toCapitalize(str) {
+        let name = str.split(" ");
+        let names;
+        for (let i = 0; i < name.length; i++) {
+          name[i].charAt(0).toUpperCase() +
+            currentUser.name.slice(1).toLowerCase();
+          names += name[i];
+        }
+        return names;
+      }
+    </script>
     <lottie-player
       id="tenthLottie"
       src="https://assets3.lottiefiles.com/packages/lf20_rXwz8k6MJO.json"

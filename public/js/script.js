@@ -16,12 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     input.setAttribute("name", "ingredients");
     input.className = "formReview";
     ingredientDiv.appendChild(input);
-    //.classList.add("formReview");
   });
   delbtn.addEventListener("click", () => {
     const input = document.querySelector("input");
 
-    ingredientDiv.removeChild(input);
-    //.classList.add("formReview");
+    ingredientDiv.removeChild(ingredientDiv.lastElementChild);
   });
 });
