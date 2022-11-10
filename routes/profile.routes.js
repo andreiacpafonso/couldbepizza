@@ -38,11 +38,11 @@ router.post(
     } else {
       pizzaImg = req.file.path;
     }
-    const ingredients = req.body.ingredients
+    const ingredients = req.body.ingredients;
     const lowerIngredients = ingredients.map((ingredient) => {
-      return ingredient.toLowerCase()
-    })
- 
+      return ingredient.toLowerCase();
+    });
+
     const newPizza = await Userpizza.create({
       imageUrl: pizzaImg,
       namePizza: req.body.namePizza,
@@ -50,7 +50,7 @@ router.post(
       country: req.body.country,
       ingredients: lowerIngredients,
       review: req.body.review,
-      pizzaholic:[]
+      pizzaholic: [],
     });
     const currentUser = await User.findByIdAndUpdate(req.session.user._id, {
       $push: { userPizza: newPizza._id },
@@ -71,11 +71,14 @@ router.get("/update/:id", async (req, res) => {
 //  router.post("/update/:Id"
 
 router.post("/update/:id", uploader.single("imageUrl"), async (req, res) => {
-  const ingredients = req.body.ingredients
-    const lowerIngredients = ingredients.map((ingredient) => {
-      return ingredient.toLowerCase()
-    })
-   await Userpizza.findByIdAndUpdate(req.params.id, {...req.body, ingredients:lowerIngredients});
+  const ingredients = req.body.ingredients;
+  const lowerIngredients = ingredients.map((ingredient) => {
+    return ingredient.toLowerCase();
+  });
+  await Userpizza.findByIdAndUpdate(
+    req.params.id,
+    /* {... */ req.body /* , ingredients:lowerIngredients} */
+  );
   res.redirect("/profile");
 });
 
