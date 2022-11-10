@@ -100,7 +100,12 @@
               />
             </a>
           </div>
-          <h1 class="likesLength"><%-pizza.pizzaholic.length%></h1>
+          <% if(pizza.pizzaholic.length === 0) {%>
+            <h1 class="likesLength">0</h1>
+            <%}else {%>
+              <h1 class="likesLength"><%-pizza.pizzaholic.length%></h1>
+              <%} %> 
+         
         </div>
       </div>
     </div>
