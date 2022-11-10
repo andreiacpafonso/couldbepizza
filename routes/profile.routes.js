@@ -38,15 +38,17 @@ router.post(
     } else {
       pizzaImg = req.file.path;
     }
-    const ingredient = req.body.ingredients.map((ingredient) =>
-      ingredient.toLowerCase()
-    );
+    const ingredients = req.body.ingredients
+    const lowerIngredients = ingredients.map((ingredient) => {
+      return ingredient.toLowerCase()
+    })
+ 
     const newPizza = await Userpizza.create({
       imageUrl: pizzaImg,
       namePizza: req.body.namePizza,
       city: req.body.city,
       country: req.body.country,
-      ingredients: ingredient,
+      ingredients: lowerIngredients,
       review: req.body.review,
       pizzaholic:[]
     });
