@@ -65,15 +65,17 @@ router.post(
 router.get("/update/:id", async (req, res) => {
   const updatePizza = await Userpizza.findById(req.params.id);
   const currentUser = await User.findById(req.session.user._id);
-  console.log("updatePizza", updatePizza);
   res.render("update", { updatePizza, currentUser });
 });
 
 //  router.post("/update/:Id"
 
 router.post("/update/:id", uploader.single("imageUrl"), async (req, res) => {
-  console.log(req.body, req.file);
-  await Userpizza.findByIdAndUpdate(req.params.id, req.body);
+  const ingredients = req.body.ingredients
+    const lowerIngredients = ingredients.map((ingredient) => {
+      return ingredient.toLowerCase()
+    })
+   await Userpizza.findByIdAndUpdate(req.params.id, {...req.body, ingredients:lowerIngredients});
   res.redirect("/profile");
 });
 
