@@ -38,13 +38,13 @@ router.post(
     } else {
       pizzaImg = req.file.path;
     }
-
+    const ingredient = req.body.ingredients.toLowerCase();
     const newPizza = await Userpizza.create({
       imageUrl: pizzaImg,
       namePizza: req.body.namePizza,
       city: req.body.city,
       country: req.body.country,
-      ingredients: req.body.ingredients,
+      ingredients: ingredient,
       review: req.body.review,
     });
     const currentUser = await User.findByIdAndUpdate(req.session.user._id, {
