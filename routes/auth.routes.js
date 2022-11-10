@@ -18,13 +18,21 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
   try {
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = bcrypt.hashSync(req.body.password, salt);
+    const userEmail = await User.findOne({ email: req.body.email });
 
-    await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: hashPassword,
-    });
-    res.redirect("/auth/login");
+    if (userEmail === null) {
+      await User.create({
+        name: req.body.name,
+        email: userEmail,
+        password: hashPassword,
+      });
+      res.redirect("/auth/login");
+    } else {
+      res.render("signup", {
+        errorMessage: "This e-mail is already registered.",
+        isConnected: false,
+      });
+    }
   } catch (error) {
     console.log(error.message);
     res.render("signup", {
@@ -48,7 +56,7 @@ router.post("/login", isLoggedOut, async (req, res) => {
   console.log({ email });
   if (!currentUser) {
     res.render("login", {
-      errorMessage: "E-mail is not registered",
+      errorMessage: "E-mail is not registered.",
       isConnected: false,
     });
   } else {
@@ -58,7 +66,7 @@ router.post("/login", isLoggedOut, async (req, res) => {
       res.redirect("/profile");
     } else {
       res.render("login", {
-        errorMessage: "Incorrect password",
+        errorMessage: "Incorrect password.",
         isConnected: false,
       });
     }

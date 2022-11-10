@@ -24,14 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ingredientDiv.removeChild(input);
     //.classList.add("formReview");
   });
-  LottieInteractivity.create({
-    player: "#tenthLottie",
-    mode: "cursor",
-    actions: [
-      {
-        type: "click",
-        forceFlag: false,
-      },
-    ],
-  });
 });
