@@ -23,7 +23,7 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
     if (userEmail === null) {
       await User.create({
         name: req.body.name,
-        email: userEmail,
+        email: req.body.email,
         password: hashPassword,
       });
       res.redirect("/auth/login");
