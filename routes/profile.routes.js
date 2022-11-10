@@ -48,6 +48,7 @@ router.post(
       country: req.body.country,
       ingredients: ingredient,
       review: req.body.review,
+      pizzaholic:[]
     });
     const currentUser = await User.findByIdAndUpdate(req.session.user._id, {
       $push: { userPizza: newPizza._id },
