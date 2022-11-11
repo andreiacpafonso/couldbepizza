@@ -78,13 +78,19 @@ router.get("/update/:id", async (req, res) => {
 //  router.post("/update/:Id"
 
 router.post("/update/:id", uploader.single("imageUrl"), async (req, res) => {
-  const ingredients = req.body.ingredients;
+  let ingredients = req.body.ingredients;
+    console.log(ingredients)
+    if (typeof ingredients === "undefined") {
+      ingredients = []
+    } else if  ( typeof ingredients === "string" ) {
+      ingredients = [ingredients]
+    }
   const lowerIngredients = ingredients.map((ingredient) => {
     return ingredient.toLowerCase();
   });
   await Userpizza.findByIdAndUpdate(
     req.params.id,
-    /* {... */ req.body /* , ingredients:lowerIngredients} */
+    {... req.body  , ingredients:lowerIngredients} 
   );
   res.redirect("/profile");
 });
