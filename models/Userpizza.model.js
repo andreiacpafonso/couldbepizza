@@ -37,7 +37,7 @@ const userPizzaSchema = new Schema(
     pizzaholic: [{
       type: Schema.Types.ObjectId,
       ref: "User",
-      unique: true,
+      
     }],
   },
   {
