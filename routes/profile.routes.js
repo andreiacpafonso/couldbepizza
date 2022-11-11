@@ -38,7 +38,14 @@ router.post(
     } else {
       pizzaImg = req.file.path;
     }
-    const ingredients = req.body.ingredients;
+    let ingredients = req.body.ingredients;
+    console.log(ingredients)
+    if (typeof ingredients === "undefined") {
+      ingredients = []
+    } else if  ( typeof ingredients === "string" ) {
+      ingredients = [ingredients]
+    }
+    
     const lowerIngredients = ingredients.map((ingredient) => {
       return ingredient.toLowerCase();
     });
